@@ -5,8 +5,6 @@ const prisma = new PrismaClient();
 
 async function getAllPosts() {
   const allPosts = await prisma.post.findMany();
-  console.log(allPosts);
-
   return allPosts;
 }
 
