@@ -7,11 +7,15 @@ router.get("/", (req, res) => {
   return res.send(Object.values(req.context.models.messages));
 });
 
+router.get("/new", (req, res) => {
+  res.render("createPost", { title: "Create Post" });
+});
+
 router.get("/:postId", (req, res) => {
   return res.send(req.context.models.post[req.params.postId]);
 });
 
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   const id = uuidv4();
   const post = {
     id,

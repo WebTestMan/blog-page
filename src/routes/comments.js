@@ -23,3 +23,5 @@ router.post("/", (req, res) => {
 
   return res.send(comment);
 });
+
+module.exports = router;
