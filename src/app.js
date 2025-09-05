@@ -24,7 +24,7 @@ app.use(cors());
 // });
 
 app.use("/users", routes.user);
-app.use("/Posts", routes.posts);
+app.use("/posts", routes.posts);
 app.use("/comments", routes.comments);
 app.use("/", routes.router);
 

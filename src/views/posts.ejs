@@ -8,7 +8,9 @@
     <h1 class="page-title"><%= title %></h1>
     <div>
       <a href="/posts/new">Create New Blog Post...</a>
-      <a href="/posts">View All Blog Posts...</a>
+      <a href="/">Homepage...</a>
     </div>
+
+    <div><%- include("blogPost", {blogs : blogs}) %></div>
   </body>
 </html>
