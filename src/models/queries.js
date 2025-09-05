@@ -12,16 +12,6 @@ async function getAllPosts() {
   return blogArray;
 }
 
-async function getLatestPost() {
-  const latestPost = await prisma.post.findFirst();
-  console.log(latestPost);
-  //   const blogArray = Object.keys(blogs).map(function (k) {
-  //     return blogs[k];
-  //   });
-  //   blogArray.reverse();
-  //   return allPosts;
-}
-
 async function createNewPost(req, res) {
   const id = uuidv4();
   const post = {
@@ -35,4 +25,4 @@ async function createNewPost(req, res) {
   await prisma.post.create({ data: post });
 }
 
-module.exports = { getAllPosts, createNewPost, getLatestPost };
+module.exports = { getAllPosts, createNewPost };

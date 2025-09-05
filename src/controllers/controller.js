@@ -6,12 +6,13 @@ async function allPostsGET(req, res) {
   res.render("posts", { title: "All Posts", blogs: blogs });
 }
 
-async function latestPost(req, res) {
-  const latestBlog = await query.getLatestPost();
-  console.log(latestBlog);
+async function homepage(req, res) {
+  const latestBlog = await query.getAllPosts();
+  console.log("routes/index " + latestBlog[0]);
+  res.render("index", { title: "Homepage", latestBlog: latestBlog[0] });
 }
 
 module.exports = {
   allPostsGET,
-  latestPost,
+  homepage,
 };
