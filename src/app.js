@@ -4,7 +4,7 @@ const cors = require("cors");
 // const models = require("./models");
 const routes = require("./routes");
 const path = require("node:path");
-const assetsPath = path.join(__dirname, "public");
+const assetsPath = path.join(__dirname, "/public");
 
 const app = express();
 app.use(express.static(assetsPath));
@@ -26,7 +26,7 @@ app.use(cors());
 app.use("/users", routes.user);
 app.use("/Posts", routes.posts);
 app.use("/comments", routes.comments);
-app.use("/", routes.homepage);
+app.use("/", routes.router);
 
 // Entry point
 app.listen(process.env.PORT, () =>

@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <div>
       <h1>New Blog Post</h1>
-      <form action="/new" method="POST">
+      <form action="/posts/new" method="POST">
         <label for="title"> Title: </label>
-        <input type="text" name="title" id="title" required /><br />
+        <input type="text" name="title" id="title" required /><br /><br />
 
         <label for="content"> Blog: </label>
-        <input type="text" name="content" id="content" required /><br />
+        <textarea name="content" id="content" required /></textarea><br /><br />
 
         <label for="published"> Publish: </label>
-        <input type="checkbox" id="published" name="published" checked />
+        <input type="checkbox" id="published" name="published" checked /><br /><br />
         <label for="published">Publish post?</label>
 
         <button type="add">Create New Blog Post...</button>

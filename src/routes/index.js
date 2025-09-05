@@ -2,18 +2,18 @@ const session = require("./session");
 const user = require("./user");
 const posts = require("./posts");
 const comments = require("./comments");
-const query = require("../models/queries");
+const controller = require("../controllers/controller");
 
-const homepage = async function getCategories(req, res) {
-  const blogs = await query.getAllPosts();
+const Router = require("express");
 
-  res.render("index", { title: "Homepage", blogs: blogs });
-};
+const router = Router();
+
+router.get("/", controller.homepage);
 
 module.exports = {
   session,
   user,
   posts,
   comments,
-  homepage,
+  router,
 };

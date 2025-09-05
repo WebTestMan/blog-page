@@ -1,11 +1,11 @@
 const Router = require("express");
-const { v4: uuidv4 } = require("uuid");
+const query = require("../models/queries");
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  return res.send(Object.values(req.context.models.messages));
-});
+// router.get("/", (req, res) => {
+//   return res.send(Object.values(req.context.models.messages));
+// });
 
 router.get("/new", (req, res) => {
   res.render("createPost", { title: "Create Post" });
@@ -16,18 +16,8 @@ router.get("/:postId", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-  const id = uuidv4();
-  const post = {
-    id,
-    title: req.body.title,
-    content: req.body.text,
-    authorId: req.context.me.id,
-    published: req.published,
-  };
-
-  req.context.models.post[id] = post;
-
-  return res.send(post);
+  query.createNewPost(req, res);
+  res.redirect("/");
 });
 
 router.delete("/:messageId", (req, res) => {
